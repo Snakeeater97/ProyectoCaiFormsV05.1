@@ -79,6 +79,20 @@ namespace ProyectoCaiFormsV05._1
             presupuestoClienteForm.ShowDialog();
         }
 
+        private void btnQuitarProducto_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int selectedIndex = dataGridView1.SelectedRows[0].Index;
+                dataGridView1.Rows.RemoveAt(selectedIndex);
+
+                if (selectedIndex < presupuestoLineaVuelo.Count)
+                {
+                    presupuestoLineaVuelo.RemoveAt(selectedIndex);
+                }
+            }
+        }
+
         //Creo Presupuesto luego de que se Guarde el cliente en PresupuestoClienteForm
         private void PresupuestoClienteForm_FormClosed(object sender, FormClosedEventArgs e)
         {
